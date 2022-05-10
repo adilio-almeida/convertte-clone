@@ -77,7 +77,7 @@ function Body() {
     const key = touchDevice ? 'api' : 'web'
     if (number && number !== '(00) 00000-0000') {
       setLink(
-        `https://${key}.whatsapp.com/send?phone=${number.replace(
+        `https://${key}.whatsapp.com/send?phone=55${number.replace(
           /[^\d]+/g,
           ''
         )}&text=${text}`
