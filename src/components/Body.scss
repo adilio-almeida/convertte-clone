@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 30px;
+    max-width: 350px;
+}
+
+.fields {
+    color: #ffffff !important;
+    margin-bottom: 30px !important;
+}
+
+.button-generate {
+    color: #ffffff !important;
+    width: 50%;
+    align-self: center;
+}
