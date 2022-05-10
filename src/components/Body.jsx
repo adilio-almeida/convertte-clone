@@ -9,6 +9,7 @@ import Input from '@mui/material/Input'
 import InputLabel from '@mui/material/InputLabel'
 import TextField from '@mui/material/TextField'
 import FormControl from '@mui/material/FormControl'
+import { useSnackbar } from 'notistack'
 import './Body.scss'
 
 const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
@@ -37,6 +38,7 @@ function Body() {
   const [text, setText] = useState('')
   const [Isgerated, setGerated] = useState(true)
   const [link, setLink] = useState('')
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar()
 
   const handleChangeNumber = (event) => {
     setNumber(event.target.value)
@@ -59,7 +61,7 @@ function Body() {
     navigator.clipboard
       .writeText(link)
       .then(() => {
-        console.log('Text copied to clipboard...')
+        enqueueSnackbar('Texto copiado com sucesso!', { variant: 'success' })
       })
       .catch((err) => {
         console.log('Something went wrong', err)
@@ -118,18 +120,14 @@ function Body() {
     </Box>
   ) : (
     <Box className="main">
-      <FormControl variant="outlined" className="fields">
-        <InputLabel htmlFor="phone-number">Número</InputLabel>
-        <Input
-          value={number}
-          onChange={handleChangeNumber}
-          name="textmask"
-          id="phone-number"
-          inputComponent={TextMaskCustom}
-          autoFocus={false}
-          autoComplete="off"
-        />
-      </FormControl>
+      <TextField
+        id="link"
+        label="Link"
+        variant="outlined"
+        className="fields"
+        value={link}
+        disabled
+      />
       <Button className="fields" variant="contained" onClick={copyLink}>
         Copiar link
       </Button>
