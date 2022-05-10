@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { Button } from '@mui/material'
 import PropTypes from 'prop-types'
 import { IMaskInput } from 'react-imask'
-import NumberFormat from 'react-number-format'
 import Box from '@mui/material/Box'
 import Input from '@mui/material/Input'
 import InputLabel from '@mui/material/InputLabel'
@@ -38,7 +37,7 @@ function Body() {
   const [text, setText] = useState('')
   const [Isgerated, setGerated] = useState(true)
   const [link, setLink] = useState('')
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar()
+  const { enqueueSnackbar } = useSnackbar()
 
   const handleChangeNumber = (event) => {
     setNumber(event.target.value)
@@ -61,7 +60,7 @@ function Body() {
     navigator.clipboard
       .writeText(link)
       .then(() => {
-        enqueueSnackbar('Texto copiado com sucesso!', { variant: 'success' })
+        enqueueSnackbar('Texto copiado com sucesso!', { variant: 'success', anchorOrigin: { vertical: 'top' , horizontal: 'center' }})
       })
       .catch((err) => {
         console.log('Something went wrong', err)
