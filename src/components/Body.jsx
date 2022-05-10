@@ -41,7 +41,6 @@ function Body() {
 
   const handleChangeNumber = (event) => {
     setNumber(event.target.value)
-    console.log(event.target.value)
   }
 
   const sellMore = () => {
@@ -53,7 +52,6 @@ function Body() {
 
   const handleChangeText = (event) => {
     setText(event.target.value)
-    console.log(text)
   }
 
   const copyLink = () => {
@@ -63,7 +61,7 @@ function Body() {
         enqueueSnackbar('Texto copiado com sucesso!', { variant: 'success', anchorOrigin: { vertical: 'top' , horizontal: 'center' }})
       })
       .catch((err) => {
-        console.log('Something went wrong', err)
+        enqueueSnackbar('Falha ao copiar link', {variant: 'error', anchorOrigin: { vertical: 'top' , horizontal: 'center' }})
       })
   }
 
@@ -86,7 +84,7 @@ function Body() {
       )
       setGerated(false)
     } else {
-      console.log('erro')
+      enqueueSnackbar('Insira um número válido!', {variant: 'error', anchorOrigin: { vertical: 'top' , horizontal: 'center' }})
     }
   }
 

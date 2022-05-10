@@ -1,0 +1,19 @@
+$primary-color : #06c3d4;
+$secondary-color : #0b0b0b;
+
+.steps {
+    display: flex;
+    flex-direction: column;
+
+}
+
+h2 {
+    color: $primary-color ;
+}
+
+.topic {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline ;
+    height: 40px;
+}
